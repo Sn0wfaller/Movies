@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+
+    <changeSet id="1" author="Infinity" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <and>
+                <not>
+                    <tableExists tableName="movies"/>
+                </not>
+                <not>
+                    <tableExists tableName="country"/>
+                </not>
+                <not>
+                    <tableExists tableName="director"/>
+                </not>
+            </and>
+        </preConditions>
+
+        <createTable tableName="director">
+            <column name="id_director"  type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="nvarchar2(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="movies">
+            <column name="id_movies"  type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="nvarchar2(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="release" type="nvarchar2(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_director" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_country" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="country">
+            <column name="id_country"  type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="nvarchar2(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
+        <addForeignKeyConstraint baseTableName="movies"
+                                 baseColumnNames="id_country"
+                                 constraintName="fk_movies_country_id_country"
+                                 referencedTableName="country"
+                                 referencedColumnNames="id_country"/>
+        <addForeignKeyConstraint baseTableName="movies"
+                                 baseColumnNames="id_director"
+                                 constraintName="fk_movies_director_id_director"
+                                 referencedTableName="director"
+                                 referencedColumnNames="id_director"/>
+
+        <rollback>
+            <dropAllForeignKeyConstraints baseTableName="movies"/>
+            <dropAllForeignKeyConstraints baseTableName="country"/>
+            <dropAllForeignKeyConstraints baseTableName="director"/>
+
+            <dropTable tableName="movies"/>
+            <dropTable tableName="country"/>
+            <dropTable tableName="director"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

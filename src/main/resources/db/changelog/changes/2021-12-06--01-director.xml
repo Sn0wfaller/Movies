@@ -17,7 +17,7 @@
         </insert>
         <insert tableName="director">
             <column name="name">Frank Darabont</column>
-            <column name="birth">28/01/1959</column>
+            <column name="birth">28.01.1959</column>
         </insert>
 
         <rollback>

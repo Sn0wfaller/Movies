@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @RequiredArgsConstructor
@@ -18,7 +16,7 @@ public class MoviesModel {
     @JsonProperty(value = "title")
     private String title;
     @JsonProperty(value = "release")
-    private Date release;
+    private String release;
     @JsonProperty(value = "directorId")
     private Long directorId;
     @JsonProperty(value = "countryId")

@@ -26,7 +26,7 @@ public class Movies {
     private String title;
 
     @NotNull
-    private Date release;
+    private String release;
 
     @NotNull
     @JoinColumn(name = "id_country")
@@ -38,7 +38,7 @@ public class Movies {
     @ManyToOne
     private Director director;
 
-    public Movies(String title, Date release, Country country, Director director)
+    public Movies(String title, String release, Country country, Director director)
     {
         this.title = title;
         this.release = release;

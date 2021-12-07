@@ -26,10 +26,10 @@ public class Director {
 
     @NotNull
     @Column(name = "birth")
-    private Date birth;
+    private String birth;
 
 
-    public Director(String name, Date birth) {
+    public Director(String name, String birth) {
         this.name = name;
         this.birth = birth;
     }

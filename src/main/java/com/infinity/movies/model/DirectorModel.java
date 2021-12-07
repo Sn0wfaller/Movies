@@ -17,5 +17,5 @@ public class DirectorModel {
     @JsonProperty(value = "name")
     private String name;
     @JsonProperty(value = "birth")
-    private Date birth;
+    private String birth;
 }

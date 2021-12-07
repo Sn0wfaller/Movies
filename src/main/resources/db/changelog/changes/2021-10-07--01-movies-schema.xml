@@ -28,7 +28,7 @@
             <column name="name" type="nvarchar2(100)">
                 <constraints nullable="false"/>
             </column>
-            <column name="birth" type="date">
+            <column name="birth" type="nvarchar2(100)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

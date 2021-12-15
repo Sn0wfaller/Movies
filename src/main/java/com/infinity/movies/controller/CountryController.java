@@ -26,8 +26,8 @@ public class CountryController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Country>> getCountry(PageDto pageDto){
-        return new ResponseEntity<>(countryService.getCountry(pageDto), HttpStatus.OK);
+    public ResponseEntity<Iterable<Country>> getCountry(){
+        return new ResponseEntity<>(countryService.getCountry(), HttpStatus.OK);
     }
 
     @PostMapping

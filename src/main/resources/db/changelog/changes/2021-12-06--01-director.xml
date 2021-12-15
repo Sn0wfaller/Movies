@@ -13,11 +13,11 @@
 
         <insert tableName="director">
             <column name="name">Denis Villeneuve</column>
-            <column name="birth">03.10.1967</column>
+            <column name="birth">10.03.1967</column>
         </insert>
         <insert tableName="director">
             <column name="name">Frank Darabont</column>
-            <column name="birth">28.01.1959</column>
+            <column name="birth">01.28.1959</column>
         </insert>
 
         <rollback>

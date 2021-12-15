@@ -28,9 +28,9 @@ public class DirectorServiceImpl implements DirectorService {
     }
 
     @Override
-    public Page<Director> getDirector(PageDto pageDto) {
+    public Iterable<Director> getDirector() {
 
-        return directorRepository.findAll(pageDto.getPageable());
+        return directorRepository.findAll();
     }
 
     @Override

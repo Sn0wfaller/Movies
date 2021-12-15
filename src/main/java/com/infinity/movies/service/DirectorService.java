@@ -1,15 +1,17 @@
 package com.infinity.movies.service;
 
 import com.infinity.movies.dto.PageDto;
+import com.infinity.movies.entity.Country;
 import com.infinity.movies.entity.Director;
 import com.infinity.movies.model.DirectorModel;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 
 public interface DirectorService {
 
     Director getDirectorById(Long id);
 
-    Page<Director> getDirector(PageDto pageDto);
+    Iterable<Director> getDirector();
 
     Director addDirector(DirectorModel directorModel);
 

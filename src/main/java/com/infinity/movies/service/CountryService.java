@@ -4,12 +4,13 @@ import com.infinity.movies.dto.PageDto;
 import com.infinity.movies.entity.Country;
 import com.infinity.movies.model.CountryModel;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 
 public interface CountryService {
 
     Country getCountryById(Long id);
 
-    Page<Country> getCountry(PageDto pageDto);
+    Iterable<Country> getCountry();
 
     Country addCountry(CountryModel countryModel);
 

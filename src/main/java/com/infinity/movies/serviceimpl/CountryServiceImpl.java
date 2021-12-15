@@ -10,6 +10,8 @@ import com.infinity.movies.repository.CountryRepository;
 import com.infinity.movies.service.CountryService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,9 +30,9 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Page<Country> getCountry(PageDto pageDto) {
+    public Iterable<Country> getCountry() {
 
-        return countryRepository.findAll(pageDto.getPageable());
+        return countryRepository.findAll();
     }
 
     @Override

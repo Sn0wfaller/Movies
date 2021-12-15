@@ -26,8 +26,8 @@ public class DirectorController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Director>> getDirector(PageDto pageDto){
-        return new ResponseEntity<>(directorService.getDirector(pageDto), HttpStatus.OK);
+    public ResponseEntity<Iterable<Director>> getDirector(){
+        return new ResponseEntity<>(directorService.getDirector(), HttpStatus.OK);
     }
 
     @PostMapping

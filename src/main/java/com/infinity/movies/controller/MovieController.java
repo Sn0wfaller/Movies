@@ -26,8 +26,8 @@ public class MovieController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Movies>> getMovies(PageDto pageDto){
-        return new ResponseEntity<>(moviesService.getMovies(pageDto), HttpStatus.OK);
+    public ResponseEntity<Iterable<Movies>> getMovies(PageDto pageDto){
+        return new ResponseEntity<>(moviesService.getMovies(), HttpStatus.OK);
     }
 
     @PostMapping

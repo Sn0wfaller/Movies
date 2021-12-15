@@ -32,8 +32,8 @@ public class MoviesServiceImpl implements MoviesService {
     }
 
     @Override
-    public Page<Movies> getMovies(PageDto pageDto) {
-        return moviesRepository.findAll(pageDto.getPageable());
+    public Iterable<Movies> getMovies() {
+        return moviesRepository.findAll();
     }
 
     @Override

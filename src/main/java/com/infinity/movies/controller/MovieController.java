@@ -43,6 +43,7 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(value = HttpStatus.OK)
     public void deleteById(@PathVariable Long id)
     {
         moviesService.deleteById(id);
